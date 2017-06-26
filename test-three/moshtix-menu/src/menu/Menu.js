@@ -15,9 +15,12 @@ class Menu extends Component {
         let subMenuContent = item.children.map(childItem => {
             subIndex ++;
             let subEventKey = index + '.' + subIndex;
+
+            let menuLink = "/" + item.name + "/" + childItem.name;
+            menuLink = menuLink.toLowerCase().replace(' ','');
             return (
                 <MenuItem eventKey={subEventKey} key={childItem.name} id={childItem.name}>
-                    <Link to="/about">{childItem.name}</Link>
+                    <Link to={menuLink}>{childItem.name}</Link>
                 </MenuItem>)
         });
 

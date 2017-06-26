@@ -5,7 +5,7 @@ class Gallery extends Component {
     
     return (
       <div>
-         Gallery
+         <a href="http://www.moshtix.com.au/v2/gallery" >Gallery</a>
       </div>
 
     );

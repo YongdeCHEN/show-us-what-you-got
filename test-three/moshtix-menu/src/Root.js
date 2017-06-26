@@ -9,9 +9,15 @@
  */
 
 import React, { Component } from 'react';
-import { Router, Route, Link, browserHistory,IndexRoute } from 'react-router';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 
+import logo from './assets/images/logo-moshtix.png';
+import Menu from './menu/Menu';
 
 import App from './App';
 
@@ -36,15 +42,23 @@ import Reports from './components/reporting/reports/reports';
 import Scheduling from './components/reporting/scheduling/scheduling';
 
 
-const history = browserHistory
-
 export default class Root extends Component {
 
   render() {
     return (
-        <Router history={history}>
-          <Route path='/' component={App}>
-            
+        <Router>
+          <div>
+            <div className="App">
+                <div className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <h2>Welcome to Moshtix</h2>
+                </div>
+                <Menu />
+            </div>
+            <hr />
+
+            <Route exact path="/" component={Contact}/>
+
             <Route path='/account/contact' component={Contact} pageName="Contact" pageDescription="Contact." />
             <Route path='/account/preferences' component={Preferences} pageName="Preferences" pageDescription="Preferences." />
             <Route path='/account/users' component={Users} pageName="Users" pageDescription="Users." />
@@ -60,8 +74,8 @@ export default class Root extends Component {
             <Route path='/reporting/dashboard' component={Dashboard}  pageName="Dashboard" pageDescription="Dashboard." />
             <Route path='/reporting/reports' component={Reports}  pageName="Reports" pageDescription="Reports." />
             <Route path='/reporting/scheduling' component={Scheduling}  pageName="Scheduling" pageDescription="Scheduling." />
-          </Route>
-        </Router>
+        </div>
+      </Router>
     );
   }
 }
