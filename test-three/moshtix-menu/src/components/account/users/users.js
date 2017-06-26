@@ -5,7 +5,7 @@ class Users extends Component {
     
     return (
       <div>
-         Users
+         Manage Users
       </div>
 
     );
